@@ -1,0 +1,29 @@
+modules:
+  jira:issuePanel:
+    - key: TestPilot
+      resource: main
+      resolver:
+        function: resolver
+      render: native
+      title: TestPilot
+      icon: https://developer.atlassian.com/platform/forge/images/icons/issue-panel-icon.svg
+  function:
+    - key: resolver
+      handler: index.handler
+permissions:
+  scopes:
+    - 'read:jira-work'
+    
+  external:
+    images:
+      - 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif'
+    fetch:
+      backend:
+        - "*"
+      client:
+        - "*"
+resources:
+  - key: main
+    path: src/frontend/index.jsx
+app:
+  id: ari:cloud:ecosystem::app/e2bcc41d-b5ef-4581-a4c4-38ecf4a158e4
